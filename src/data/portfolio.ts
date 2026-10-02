@@ -11,7 +11,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/ashok-singodia-3821a7292/',
   github: GH,
   location: 'Kalaburagi, Karnataka, India',
-  resume: '/Ashok_Singodia_Resume.pdf',
+  resume: 'https://drive.google.com/file/d/18VoA0HNm_kxrp8kBPBJANg4XfbFNzteh/view?usp=sharing',
   focus: ['RAG & Agentic Workflows', 'Data Science & Machine Learning', 'Pandas, NumPy & scikit-learn', 'Computer Vision & OCR'],
 }
 

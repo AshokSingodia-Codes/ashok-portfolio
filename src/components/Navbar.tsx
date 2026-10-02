@@ -19,14 +19,14 @@ export default function Navbar() {
         <nav aria-label="Primary" className="hidden gap-1 md:flex">
           {nav.map(([label, id]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'true' : undefined} className={`rounded-full px-4 py-1.5 text-[15px] font-medium transition ${active === id ? 'bg-teal/15 text-ink' : 'text-mute hover:text-ink'}`}>{label}</a>)}
         </nav>
-        <a href={profile.resume} download className="btn btn-primary hidden !py-1.5 text-sm md:inline-flex">Resume</a>
+        <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn btn-primary hidden !py-1.5 text-sm md:inline-flex">Resume</a>
         <button className="grid h-11 w-11 place-items-center md:hidden" aria-expanded={open} aria-controls="mobile-menu" aria-label="Toggle menu" onClick={() => setOpen(o => !o)}>{open ? <X /> : <Menu />}</button>
         <motion.div style={{ scaleX }} className="absolute inset-x-6 -bottom-px h-0.5 origin-left rounded bg-gradient-to-r from-teal via-amber to-rose" />
       </div>
       <AnimatePresence>
         {open && <motion.nav id="mobile-menu" aria-label="Mobile" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="glass mt-2 grid gap-1 rounded-3xl p-3 md:hidden">
           {nav.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className="rounded-2xl px-4 py-3 font-medium hover:bg-teal/10">{label}</a>)}
-          <a href={profile.resume} download className="btn btn-primary mt-1 justify-center">Download resume</a>
+          <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-1 justify-center">View Resume</a>
         </motion.nav>}
       </AnimatePresence>
     </header>

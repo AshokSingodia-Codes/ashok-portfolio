@@ -88,7 +88,7 @@ export default function Hero() {
         <p className="mt-4 max-w-xl text-lg leading-relaxed text-mute">{profile.summary}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <a className="btn btn-primary shadow-soft" href={profile.resume} download>
+          <a className="btn btn-primary shadow-soft" href={profile.resume} target="_blank" rel="noopener noreferrer">
             <FileText size={18} /> Resume
           </a>
           <a className="btn" href={profile.github} target="_blank" rel="noopener noreferrer">
