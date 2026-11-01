@@ -2,300 +2,175 @@ export const GH = 'https://github.com/AshokSingodia-Codes'
 
 export const profile = {
   name: 'Ashok Singodia',
-  role: 'AI / ML Engineer & Data Scientist',
-  tagline: 'B.Tech Mathematics & Computing Student | GenAI, Agentic RAG & Machine Learning Practitioner',
-  summary: 'B.Tech student in Mathematics and Computing at Central University of Karnataka with proven industry experience at JSW Steel Ltd. Specialized in end-to-end Machine Learning, Data Science, Agentic LLM / RAG architectures, and Computer Vision. Architect of STEELSCAN at JSW Steel, real-time credit card fraud detection (0.91 ROC-AUC on 590K transactions), and agentic financial platforms using Pandas, NumPy, scikit-learn, PyTorch, LightGBM, OpenCV, and LangGraph.',
+  role: 'AI / ML Engineer (Internship)',
+  summary:
+    'AI/ML engineering student (B.Tech Mathematics and Computing) who builds and measures LLM systems: a hybrid RAG financial assistant over SEC filings (Neo4j vector and keyword search with deterministic financial calculators), a QLoRA fine-tuned Text-to-SQL model with guardrails tested against held-out red-team attacks, a LangGraph multi-agent research assistant with Redis checkpointing and budget controls, and a calibrated fraud-scoring API. Interned at JSW Steel building a computer-vision OCR web app. Python, PyTorch, FastAPI, Docker.',
   email: 'ashokbadu01@gmail.com',
-  phone: '+91 83064 53247',
-  phoneHref: 'tel:+918306453247',
   linkedin: 'https://www.linkedin.com/in/ashok-singodia-3821a7292/',
   github: GH,
-  location: 'Kalaburagi, Karnataka, India',
-  resume: 'https://drive.google.com/file/d/18VoA0HNm_kxrp8kBPBJANg4XfbFNzteh/view?usp=sharing',
-  focus: ['RAG & Agentic Workflows', 'Data Science & Machine Learning', 'Pandas, NumPy & scikit-learn', 'Computer Vision & OCR'],
 }
 
-export const nav = [['Home', 'hero'], ['Experience', 'experience'], ['Skills', 'skills'], ['Projects', 'projects'], ['Contact', 'contact']] as const
+export const nav = [
+  ['Experience', 'experience'],
+  ['Skills', 'skills'],
+  ['Projects', 'projects'],
+  ['Contact', 'contact'],
+] as const
 
 export const experience = [
   {
     org: 'JSW Steel Ltd., Dolvi Works',
     title: 'IT Department Intern',
-    period: '18 May 2026 – 18 Jun 2026',
+    period: '18 May 2026 to 18 Jun 2026',
     points: [
-      'Built STEELSCAN, a full-stack computer vision web app that reads circular numeric coil-identification codes using OpenCV preprocessing with PaddleOCR and EasyOCR.',
-      'Developed FastAPI REST APIs with SQLAlchemy, OAuth2, JWT, bcrypt and role-based access control; every scan is logged for plant-floor traceability.',
-      'Added CSV bulk import/export plus health and metrics endpoints (request volume, success rate, latency).',
-      'Built a React 18, Vite and Tailwind dashboard with live camera scanning, upload and manual override for plant-floor kiosks.'
-    ]
-  },
-  {
-    org: 'YBI Foundation',
-    title: 'AIML with Data Science Intern',
-    period: '2 months, completed May 2025',
-    points: [
-      'Completed an intensive 2-month internship with a Data Science specialization, building supervised & unsupervised ML models using Python, Pandas, NumPy, and scikit-learn.',
-      'Analyzed real-world datasets, performed data cleaning, feature extraction, model tuning, and evaluation metrics visualization.'
-    ]
+      'Built STEELSCAN, a full-stack web app that reads circular coil-ID codes from steel coils using OpenCV preprocessing (deskew, circular unwarping, contrast enhancement) with PaddleOCR and EasyOCR.',
+      'FastAPI + SQLAlchemy REST APIs with OAuth2/JWT, bcrypt and RBAC; per-scan audit log (timestamp, operator, confidence, source), CSV bulk import/export, and health and metrics endpoints.',
+      'React 18 + Tailwind kiosk dashboard with live camera, image upload and manual-override modes; deployed on Vercel and Render.',
+    ],
   },
 ]
 
 export const education = {
   school: 'Central University of Karnataka, Kalaburagi',
   degree: 'B.Tech, Mathematics and Computing',
-  period: '2023 – Expected 2027',
-  cgpa: '7.99',
-  courses: 'Machine Learning, Computational Statistics, Linear Algebra, Probability & Random Processes, Data Structures & Algorithms, DBMS'
+  period: '2023 to Present',
+  cgpa: '7.88',
+  courses: 'Machine Learning, Statistics, Advanced Scientific Computing and Probability',
 }
 
-export const stats = [
-  { value: '0.91', label: 'ROC-AUC on 590K IEEE-CIS transactions' },
-  { value: '59.7%', label: 'fraud recall at top-5% alerts' },
-  { value: '3x', label: 'retrieval re-tries in Self-RAG verifier' },
-  { value: '14+', label: 'public GitHub repositories' },
-]
-
 export const certifications = [
-  'AI and Data Analytics Virtual Internship: AICTE, Shell India Markets, Edunet Foundation (Apr–May 2025)',
-  'AI and Prompt Engineering: VaultCodes (AICTE)',
-  'Ethical Hacking and Penetration Testing: C-DAC, Noida',
-  'NPTEL: Deep Learning; Essential Mathematics for Machine Learning; Computer Architecture',
+  'AI and Data Analytics Virtual Internship (Green Skills): AICTE, Shell India Markets, Edunet Foundation',
+  'AI-ML with Data Science Intern: completed a 2-month AIML with Data Science virtual internship (specialization: Data Science)',
+  'NPTEL: Deep Learning; Essential Mathematics for Machine Learning; Introduction to Large Language Models (LLMs); Statistical Foundation for Big Data Analysis; Introduction to Software Engineering',
 ]
 
 export const skills: Record<string, string[]> = {
-  'Machine Learning & Deep Learning': [
+  'LLM and GenAI': [
+    'QLoRA Fine-Tuning (PEFT, bitsandbytes)',
+    'GGUF Quantization (llama.cpp)',
+    'RAG',
+    'Hybrid Search (Vector + Keyword, Reciprocal Rank Fusion)',
+    'Cross-Encoder Reranking',
+    'LangGraph',
+    'Multi-Agent Systems',
+    'SQL Guardrails (sqlglot AST Validation)',
+    'LLM Evaluation (Execution Accuracy, Precision@5)',
+  ],
+  'ML and Modeling': [
+    'LightGBM',
     'scikit-learn',
     'PyTorch',
-    'TensorFlow',
-    'LightGBM',
-    'XGBoost',
-    'CatBoost',
-    'Optuna Tuning',
-    'SHAP & Explainability',
-    'Isotonic Calibration',
-    'CNN Architecture',
-    'RNN / LSTM',
-    'Random Forest & Decision Trees',
-    'Logistic Regression / SVM'
+    'Hugging Face Transformers',
+    'Probability Calibration',
+    'SHAP',
+    'Imbalanced Classification',
+    'Time-Based Validation',
+    'ROC-AUC',
+    'PR-AUC',
   ],
-  'LLM, GenAI & RAG': [
-    'LangGraph Agents',
-    'LangChain',
-    'Hybrid Search (RRF)',
-    'Reciprocal Rank Fusion',
-    'Cross-Encoder Reranking',
-    'Self-RAG Verifier',
-    'Vector DBs (FAISS, ChromaDB)',
-    'Sentence-Transformers',
-    'Neo4j Knowledge Graph',
-    'Prompt Engineering',
-    'LLM Multi-Provider Fallbacks'
-  ],
-  'Backend & MLOps': [
-    'Python',
+  Programming: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'MATLAB'],
+  'Backend and Data': [
     'FastAPI',
-    'RESTful APIs',
-    'SQLAlchemy',
+    'REST APIs',
+    'Server-Sent Events',
+    'JWT/OAuth2',
     'PostgreSQL',
-    'SQLite',
-    'Redis Caching',
-    'Docker & Docker Compose',
-    'GitHub Actions CI/CD',
-    'pytest',
-    'Prometheus & Grafana'
-  ],
-  'Data Science & Analytics': [
-    'Pandas',
+    'Redis',
+    'Neo4j',
+    'SQLAlchemy',
     'NumPy',
-    'scikit-learn',
+    'Pandas',
     'SciPy',
-    'Polars',
-    'Statsmodels',
-    'Matplotlib',
-    'Seaborn',
-    'Plotly',
-    'Exploratory Data Analysis (EDA)',
-    'Data Cleaning & Imputation',
-    'Feature Engineering',
-    'Hypothesis Testing'
   ],
-  'Computer Vision & OCR': [
+  'MLOps and Deployment': [
+    'Docker',
+    'Docker Compose',
+    'GitHub Actions (CI/CD)',
+    'pytest',
+    'Prometheus',
+    'Grafana',
+    'Git',
+    'Render',
+    'Vercel',
+  ],
+  'Computer Vision and Frontend': [
     'OpenCV',
     'PaddleOCR',
     'EasyOCR',
-    'MediaPipe Hand Tracking',
-    'YOLOv8',
-    'Image Preprocessing',
-    'Deskew & Perspective Transform',
-    'Thresholding & Contour Extraction'
-  ],
-  'Languages & Frameworks': [
-    'Python',
-    'SQL',
-    'C++',
-    'C',
-    'TypeScript',
-    'JavaScript',
-    'R',
-    'MATLAB',
-    'React 18/19',
+    'React',
     'Tailwind CSS',
-    'Streamlit'
   ],
 }
 
-export type Category = 'GenAI & RAG' | 'Machine Learning' | 'Data Science' | 'Computer Vision' | 'Web'
-export interface Project { repo: string; title: string; category: Category; tagline: string; features: string[]; stack: string[]; demo?: string; featured?: boolean }
-export const categories: Array<'All' | Category> = ['All', 'GenAI & RAG', 'Machine Learning', 'Data Science', 'Computer Vision', 'Web']
+export type Category = 'LLM' | 'ML'
+
+export interface Project {
+  repo: string
+  title: string
+  category: Category
+  tagline: string
+  features: string[]
+  stack: string[]
+  demo?: string
+  model?: string
+}
+
+export const categories: Array<'All' | Category> = ['All', 'LLM', 'ML']
 
 export const projects: Project[] = [
   {
     repo: 'FinAdvisor-Voice',
     title: 'FinAdvisor-X',
-    category: 'GenAI & RAG',
-    featured: true,
-    demo: 'https://fin-advisor-voice.vercel.app',
-    tagline: 'Agentic hybrid graph-RAG financial intelligence platform with grounded Q&A over SEC 10-K filings, finance knowledge bases and books.',
+    category: 'LLM',
+    demo: 'https://fin-advisor-voice.vercel.app/',
+    tagline: 'Agentic Hybrid RAG Financial Intelligence Platform',
     features: [
-      'LangGraph agents: semantic router, query decomposition, hybrid retriever, math solver, live market data',
-      'Neo4j vector + Lucene keyword search fused with RRF (k=60), reranked by FlashRank',
-      'Self-RAG verifier checks numbers and citations, re-retrieving up to 3 times',
-      'JWT + email OTP auth, per-user isolation tested with pytest, multi-provider LLM fallback'
+      'Hybrid Retrieval: Neo4j vector + Lucene keyword search fused with RRF (k=60) and FlashRank reranking; Precision@5 up from 0.39 to 0.46 on 34 gold queries.',
+      'Agentic Pipeline: LangGraph workflow (router, decomposition, hybrid retriever, math solver, live market data) for grounded Q&A over SEC 10-K filings and finance books.',
+      'Accuracy Control: Python calculators (DCF, WACC, NPV, CAGR, SIP, Indian tax) replace LLM arithmetic; 0% hallucination on 10 out-of-corpus trap questions.',
+      'Security: JWT + email OTP, bcrypt and pytest-tested per-user data isolation.',
+      'Deployment: Groq -> GitHub Models -> OpenRouter -> Gemini fallback; React 19 + TypeScript on Vercel, FastAPI on Render, CI with GitHub Actions.',
+      'Evaluation: Harness for Precision@5, recall, MRR, router accuracy and hallucination rate.',
     ],
-    stack: ['LangGraph', 'Neo4j', 'FastAPI', 'React 19', 'TypeScript', 'Docker']
+    stack: ['LangGraph', 'Neo4j', 'FastAPI', 'React 19', 'TypeScript', 'Docker', 'Python', 'pytest'],
+  },
+  {
+    repo: 'fine-tuned-text2sql',
+    title: 'Fine-Tuned Text-to-SQL Assistant',
+    category: 'LLM',
+    model: 'https://huggingface.co/Ashoksainibadu/fine-tuned-text2sql',
+    tagline: 'Local-First QLoRA Model with SQL Safety Guardrails',
+    features: [
+      'Fine-Tuning: QLoRA fine-tuned Qwen2.5-Coder-3B on Spider and quantized it to a 1.9 GB GGUF model that runs on a laptop CPU; execution accuracy rose from 62.3% to 71.6% on Spider dev (n=1,034), 70.7% after quantization.',
+      'Usage: Self-hosted tool to query SQLite databases in plain English through a CLI, a React web UI or a REST API; weights on Hugging Face Hub, Docker support, GitHub Actions CI.',
+      'Safety and Reliability: sqlglot AST validator, read-only sandbox and 100-row cap; 0 of 40 held-out red-team attacks succeeded, with 0.19% false blocks on Spider dev (2/1,034); implemented execution-guided self-correction and majority voting.',
+    ],
+    stack: ['QLoRA', 'GGUF', 'SQLite', 'React', 'Docker', 'sqlglot', 'GitHub Actions'],
+  },
+  {
+    repo: 'research-agent',
+    title: 'Multi-Agent Research Assistant',
+    category: 'LLM',
+    demo: 'https://research-agent-sooty-rho.vercel.app',
+    tagline: 'Durable LangGraph Workflow with Budget Controls',
+    features: [
+      'Agent Architecture: LangGraph supervisor-worker pipeline (planner, parallel Tavily researchers, supervisor with contradiction check, writer, citation validator) producing cited research reports, with live SSE progress and instant cancellation.',
+      'Durability: Redis checkpoint after every node and a Redis Streams worker with XAUTOCLAIM recovery, so interrupted runs resume from the last completed step; Groq, Anthropic and Gemini fallback.',
+      'Cost and Security Controls: Token, search and time budgets enforced in code at graph edges; API-key auth, rate limiting and SSRF-filtered fetching; 123 passing tests (76% coverage); Docker, Vercel and Render.',
+    ],
+    stack: ['LangGraph', 'Redis', 'Tavily', 'Docker', 'Vercel', 'Render'],
   },
   {
     repo: 'fraud-scoring-service',
     title: 'Real-Time Fraud Scoring Service',
-    category: 'Machine Learning',
-    featured: true,
+    category: 'ML',
     demo: 'https://fraud-scoring-service.vercel.app',
-    tagline: 'End-to-end fraud detection API on the IEEE-CIS dataset (590K transactions) with calibrated scores and cost-based decisions.',
+    tagline: 'IEEE-CIS, 590K transactions',
     features: [
-      'LightGBM, time-based holdout, isotonic calibration: 0.91 ROC-AUC, 0.55 PR-AUC',
-      'APPROVE / MANUAL REVIEW / BLOCK thresholds from an asymmetric cost matrix',
-      'Top-5 SHAP reason codes, API-key auth, rate limiting, PostgreSQL audit log',
-      'Docker Compose, Prometheus, Grafana, GitHub Actions CI/CD'
+      'Modeling: LightGBM on highly imbalanced data with a strict time-based holdout, isotonic probability calibration, and a feature builder shared by training and serving; 0.90 ROC-AUC and 0.53 PR-AUC.',
+      'Cost-Based Decisions: APPROVE / MANUAL REVIEW / BLOCK thresholds optimized on an asymmetric cost matrix ($10 review cost vs. chargeback loss); top-5 SHAP reason codes per prediction.',
+      'Serving and MLOps: FastAPI with API-key auth, Redis rate limiting and PostgreSQL audit logging; Prometheus and Grafana monitoring; Docker Compose, GitHub Actions CI/CD, pytest; deployed on Render and Vercel.',
     ],
-    stack: ['LightGBM', 'scikit-learn', 'SHAP', 'FastAPI', 'PostgreSQL', 'Redis']
-  },
-  {
-    repo: 'steelscan',
-    title: 'STEELSCAN',
-    category: 'Computer Vision',
-    featured: true,
-    demo: 'https://steelscan.vercel.app',
-    tagline: 'Full-stack computer vision web app that reads circular numeric coil-identification codes from steel coils for JSW Steel.',
-    features: [
-      'OpenCV deskew, circular unwrapping and contrast enhancement before OCR',
-      'PaddleOCR and EasyOCR with OAuth2, JWT and RBAC',
-      'Live camera scan, image upload and manual override for plant-floor kiosks',
-      'CSV import/export, scan audit trail, health and metrics endpoints'
-    ],
-    stack: ['OpenCV', 'PaddleOCR', 'EasyOCR', 'FastAPI', 'React 18', 'Tailwind']
-  },
-  {
-    repo: 'heart_risk_prediction',
-    title: 'CardioGuard AI',
-    category: 'Machine Learning',
-    featured: true,
-    demo: 'https://ashoksingodia-codes-heart-risk-prediction-app-a8gdyp.streamlit.app/',
-    tagline: 'Educational ML web app using scikit-learn for quick cardiovascular risk assessment from patient vitals.',
-    features: [
-      'Logistic Regression & Random Forest on engineered clinical features',
-      'Evaluated performance: ROC-AUC 99.9%, recall 99.4%, precision 98.9%',
-      'Instant BMI, blood pressure and cholesterol summary with lifestyle guidance'
-    ],
-    stack: ['Python', 'Pandas', 'scikit-learn', 'Streamlit']
-  },
-  {
-    repo: 'UsedCarPricePredictionApp',
-    title: 'Used Car Price Prediction',
-    category: 'Data Science',
-    featured: true,
-    demo: 'https://usedcarpricepredictionappgit-jfw254dwosmbnhfmh9xeka.streamlit.app/',
-    tagline: 'Predictive price regression modeling on automobile datasets built with Pandas, NumPy, and scikit-learn.',
-    features: [
-      'Exploratory data analysis, outlier removal, and categorical encoding pipeline',
-      'Multiple regression models comparison (Random Forest, Gradient Boosting, XGBoost)',
-      'Deployed as an interactive user-friendly Streamlit web app'
-    ],
-    stack: ['Python', 'Pandas', 'NumPy', 'scikit-learn', 'Streamlit']
-  },
-  {
-    repo: 'Air-quality-in-indian-cities',
-    title: 'Air Quality Analytics in Indian Cities',
-    category: 'Data Science',
-    featured: true,
-    tagline: 'Data science analysis examining PM2.5, NO₂, and SO₂ pollution trends across major Indian cities.',
-    features: [
-      'Pandas & NumPy data cleaning over multi-city environmental datasets',
-      'Matplotlib & Seaborn spatial pollution visualization and trend analysis',
-      'Statistical correlation analysis between air pollutants and seasonal changes'
-    ],
-    stack: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter']
-  },
-  {
-    repo: 'Virtual-Painter',
-    title: 'Hand Tracking Virtual Painter',
-    category: 'Computer Vision',
-    tagline: 'Draw on a virtual canvas with index finger movements using OpenCV and MediaPipe real-time hand tracking.',
-    features: [
-      'Drawing mode triggered by single index finger gesture',
-      'Selection mode (index + middle finger gesture) to pick palette colors',
-      'Eraser mode, brush size slider, and real-time color picker interface'
-    ],
-    stack: ['OpenCV', 'MediaPipe', 'NumPy', 'Python']
-  },
-  {
-    repo: 'Fake_News_Detection',
-    title: 'Fake News NLP Classifier',
-    category: 'GenAI & RAG',
-    tagline: 'Text processing and machine learning classification pipeline to identify misinformative articles.',
-    features: [
-      'TF-IDF vectorization, NLTK tokenization and text preprocessing',
-      'Evaluated PassiveAggressive and Naive Bayes classifiers with 94%+ accuracy',
-      'Interactive inference module for real-time text analysis'
-    ],
-    stack: ['Python', 'scikit-learn', 'NLTK', 'Pandas', 'Jupyter']
-  },
-  {
-    repo: 'Kaggle-Predicting-Future-Sales',
-    title: 'Future Sales Time-Series Forecasting',
-    category: 'Data Science',
-    tagline: 'Time-series forecasting pipeline predicting monthly item sales for Russian retail stores.',
-    features: [
-      'Lag feature creation, rolling mean statistics, and store-item aggregations',
-      'LightGBM & XGBoost regressors optimized for RMSE evaluation metric',
-      'Comprehensive EDA on sales seasonality and promotional impacts'
-    ],
-    stack: ['Python', 'Pandas', 'NumPy', 'LightGBM', 'XGBoost', 'Jupyter']
-  },
-  {
-    repo: 'fertiliser-prediction-and-crop-recommendation',
-    title: 'Crop & Fertilizer Recommendation Engine',
-    category: 'Data Science',
-    tagline: 'Machine learning model predicting optimal crop species and calculating targeted fertilizer requirements.',
-    features: [
-      'Crop selection based on N, P, K soil content, temperature, humidity, and rainfall',
-      'Fertilizer gap calculation comparing soil test values with target crop needs',
-      'Random Forest classifier with 98.5% validation accuracy'
-    ],
-    stack: ['Python', 'Pandas', 'NumPy', 'scikit-learn', 'Random Forest']
-  },
-  {
-    repo: 'Responsive_Online_Food_Shop',
-    title: 'Responsive Online Food Shop',
-    category: 'Web',
-    demo: 'https://responsive-online-food-shop.vercel.app',
-    tagline: 'Modern responsive web interface built with HTML5, CSS3, and JavaScript for food ordering.',
-    features: [
-      'Sticky header navigation and dynamic food items showcase',
-      'Fluid layout with Flexbox, CSS Grid and mobile media queries',
-      'Interactive menu filter and contact form UI'
-    ],
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'Vercel']
+    stack: ['LightGBM', 'FastAPI', 'Redis', 'PostgreSQL', 'Docker Compose', 'Prometheus', 'Grafana', 'pytest'],
   },
 ]
-
-
