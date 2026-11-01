@@ -1,6 +1,6 @@
 # Ashok Singodia: portfolio
 
-React 18 + TypeScript + Vite + Tailwind CSS + Framer Motion + React Three Fiber (lazy-loaded, desktop only) + Lucide.
+React 18 + TypeScript + Vite + Tailwind CSS + Framer Motion + React Three Fiber + Lucide.
 
 ## Run
 ```bash
@@ -11,14 +11,10 @@ npm run preview
 ```
 
 ## Edit content
-All text, skills and projects live in `src/data/portfolio.ts`. Add a project by adding one object to `projects`; the card, filter counts and GitHub link update automatically.
-Project images use GitHub's repository preview (`opengraph.githubassets.com`). To use your own screenshots, put them in `public/shots/` and change the `<img src>` in `src/components/ProjectCard.tsx`.
+All content lives in `src/data/portfolio.ts` and mirrors the resume. Updating that file updates the hero, experience, education, certifications, skills, and projects across the site.
 
 ## Deploy
-- **Vercel:** import the GitHub repo, framework preset "Vite" (build `npm run build`, output `dist`).
-- **Netlify:** build `npm run build`, publish `dist`.
-- **GitHub Pages:** build, then publish `dist` (set `base` in `vite.config.ts` if serving from a sub-path).
-After deploying, add a canonical URL and `sitemap.xml` for SEO.
-
-## Notes
-The contact form opens the visitor's email app with the message prefilled (no backend needed). For in-page sending, connect Formspree or EmailJS in `src/components/Contact.tsx`.
+```bash
+npm run deploy
+```
+This builds the site (`tsc --noEmit && vite build`) and pushes the `dist` directory to the `gh-pages` branch.
