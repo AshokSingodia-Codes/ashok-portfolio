@@ -2,12 +2,13 @@ export const GH = 'https://github.com/AshokSingodia-Codes'
 
 export const profile = {
   name: 'Ashok Singodia',
-  role: 'AI / ML Engineer (Internship)',
+  role: 'AI / ML Engineer',
   summary:
     'AI/ML engineering student (B.Tech Mathematics and Computing) who builds and measures LLM systems: a hybrid RAG financial assistant over SEC filings, a QLoRA fine-tuned Text-to-SQL model with guardrails tested against held-out red-team attacks, a LangGraph multi-agent research assistant with Redis checkpointing and budget controls, and a calibrated fraud-scoring API. Interned at JSW Steel building a computer-vision OCR web app.',
   email: 'ashokbadu01@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ashok-singodia-3821a7292/',
   github: GH,
+  resume: 'https://drive.google.com/file/d/1gCLmacFq-tit6YBuqPA_mVrKTZp03LX6/view?usp=sharing',
 }
 
 export const nav = [
@@ -68,7 +69,7 @@ export const skills: Record<string, string[]> = {
     'ROC-AUC',
     'PR-AUC',
   ],
-  Programming: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'MATLAB'],
+  Programming: ['Python', 'SQL', 'C++', 'C++ with OOPs', 'R', 'JavaScript', 'MATLAB'],
   'Backend and Data': [
     'FastAPI',
     'REST APIs',
@@ -87,8 +88,6 @@ export const skills: Record<string, string[]> = {
     'Docker Compose',
     'GitHub Actions (CI/CD)',
     'pytest',
-    'Prometheus',
-    'Grafana',
     'Git',
     'Render',
     'Vercel',
@@ -129,10 +128,10 @@ export const projects: Project[] = [
       'Agentic Pipeline: LangGraph workflow (router, decomposition, hybrid retriever, math solver, live market data) for grounded Q&A over SEC 10-K filings and finance books.',
       'Accuracy Control: Python calculators (DCF, WACC, NPV, CAGR, SIP, Indian tax) replace LLM arithmetic; 0% hallucination on 10 out-of-corpus trap questions.',
       'Security: JWT + email OTP, bcrypt and pytest-tested per-user data isolation.',
-      'Deployment: Groq -> GitHub Models -> OpenRouter -> Gemini fallback; React 19 + TypeScript on Vercel, FastAPI on Render, CI with GitHub Actions.',
+      'Deployment: Groq -> GitHub Models -> OpenRouter -> Gemini fallback; React on Vercel, FastAPI on Render, CI with GitHub Actions.',
       'Evaluation: Harness for Precision@5, recall, MRR, router accuracy and hallucination rate.',
     ],
-    stack: ['LangGraph', 'Neo4j', 'FastAPI', 'React 19', 'TypeScript', 'Docker', 'Python', 'pytest'],
+    stack: ['LangGraph', 'Neo4j', 'FastAPI', 'React', 'Docker', 'Python', 'pytest'],
   },
   {
     repo: 'fine-tuned-text2sql',
@@ -169,8 +168,8 @@ export const projects: Project[] = [
     features: [
       'Modeling: LightGBM on highly imbalanced data with a strict time-based holdout, isotonic probability calibration, and a feature builder shared by training and serving; 0.90 ROC-AUC and 0.53 PR-AUC.',
       'Cost-Based Decisions: APPROVE / MANUAL REVIEW / BLOCK thresholds optimized on an asymmetric cost matrix ($10 review cost vs. chargeback loss); top-5 SHAP reason codes per prediction.',
-      'Serving and MLOps: FastAPI with API-key auth, Redis rate limiting and PostgreSQL audit logging; Prometheus and Grafana monitoring; Docker Compose, GitHub Actions CI/CD, pytest; deployed on Render and Vercel.',
+      'Serving and MLOps: FastAPI with API-key auth, Redis rate limiting and PostgreSQL audit logging; Docker Compose, GitHub Actions CI/CD, pytest; deployed on Render and Vercel.',
     ],
-    stack: ['LightGBM', 'FastAPI', 'Redis', 'PostgreSQL', 'Docker Compose', 'Prometheus', 'Grafana', 'pytest'],
+    stack: ['LightGBM', 'FastAPI', 'Redis', 'PostgreSQL', 'Docker Compose', 'pytest'],
   },
 ]

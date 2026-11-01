@@ -1,6 +1,6 @@
 import { useState, type PointerEvent } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDownRight, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowDownRight, FileText, Github, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../data/portfolio'
 
 const words = profile.name.split(' ')
@@ -50,7 +50,10 @@ export default function Hero() {
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-mute sm:text-base md:text-lg">{profile.summary}</p>
 
         <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
-          <a className="btn btn-primary shadow-soft !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4" href={profile.github} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-primary shadow-soft !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4" href={profile.resume} target="_blank" rel="noopener noreferrer">
+            <FileText size={16} /> Resume
+          </a>
+          <a className="btn !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4" href={profile.github} target="_blank" rel="noopener noreferrer">
             <Github size={16} /> GitHub
           </a>
           <a className="btn !py-2 !px-3.5 text-sm sm:!py-2.5 sm:!px-4" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
