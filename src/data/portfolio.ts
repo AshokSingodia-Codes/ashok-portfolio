@@ -4,7 +4,7 @@ export const profile = {
   name: 'Ashok Singodia',
   role: 'AI / ML Engineer (Internship)',
   summary:
-    'AI/ML engineering student (B.Tech Mathematics and Computing) who builds and measures LLM systems: a hybrid RAG financial assistant over SEC filings (Neo4j vector and keyword search with deterministic financial calculators), a QLoRA fine-tuned Text-to-SQL model with guardrails tested against held-out red-team attacks, a LangGraph multi-agent research assistant with Redis checkpointing and budget controls, and a calibrated fraud-scoring API. Interned at JSW Steel building a computer-vision OCR web app. Python, PyTorch, FastAPI, Docker.',
+    'AI/ML engineering student (B.Tech Mathematics and Computing) who builds and measures LLM systems: a hybrid RAG financial assistant over SEC filings, a QLoRA fine-tuned Text-to-SQL model with guardrails tested against held-out red-team attacks, a LangGraph multi-agent research assistant with Redis checkpointing and budget controls, and a calibrated fraud-scoring API. Interned at JSW Steel building a computer-vision OCR web app.',
   email: 'ashokbadu01@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ashok-singodia-3821a7292/',
   github: GH,
