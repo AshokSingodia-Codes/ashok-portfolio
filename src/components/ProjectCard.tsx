@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Github } from 'lucide-react'
 import { GH, type Project } from '../data/portfolio'
 
 export default function ProjectCard({ p }: { p: Project }) {
-  const [broken, setBroken] = useState(false)
   const repoUrl = `${GH}/${p.repo}`
+  const primaryUrl = p.demo || p.model || repoUrl
 
   return (
     <motion.article
@@ -14,46 +13,44 @@ export default function ProjectCard({ p }: { p: Project }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.35 }}
-      whileHover={{ y: -6 }}
-      className="glass group flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:shadow-2xl hover:border-teal/40"
+      whileHover={{ y: -5 }}
+      className="glass group flex flex-col justify-between rounded-3xl p-6 sm:p-7 border border-teal/25 transition-all duration-300 hover:border-teal/60 hover:shadow-2xl hover:ring-2 hover:ring-teal/20"
     >
-      <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-teal/20 via-amber/20 to-rose/20 border-b border-ink/5">
-        {!broken ? (
-          <img
-            src={`https://opengraph.githubassets.com/1/AshokSingodia-Codes/${p.repo}`}
-            alt={`${p.title} repository preview`}
-            loading="lazy"
-            width={1200}
-            height={600}
-            onError={() => setBroken(true)}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <div className="grid h-full place-items-center font-display text-5xl font-bold text-ink/30">
-            {p.title[0]}
-          </div>
-        )}
-      </div>
-
-      <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
-        <div className="flex items-center justify-between gap-2">
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-3">
           <span className="rounded-full bg-teal/15 border border-teal/25 px-3 py-1 text-xs font-bold text-teal-deep">
             {p.category}
           </span>
+          <a
+            href={primaryUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-mute/60 group-hover:text-teal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+            aria-label={`Open ${p.title}`}
+          >
+            <ArrowUpRight size={18} />
+          </a>
         </div>
 
         <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-ink group-hover:text-teal-deep transition-colors">
-          {p.title}
+          <a href={primaryUrl} target="_blank" rel="noopener noreferrer">
+            {p.title}
+          </a>
         </h3>
-        <p className="text-sm sm:text-base text-mute leading-relaxed">{p.tagline}</p>
 
-        <ul className="list-disc space-y-1.5 pl-5 text-xs sm:text-sm text-mute marker:text-teal">
+        <p className="mt-1.5 text-sm sm:text-base font-medium text-mute leading-relaxed">
+          {p.tagline}
+        </p>
+
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-xs sm:text-sm text-mute marker:text-teal">
           {p.features.map(f => (
             <li key={f}>{f}</li>
           ))}
         </ul>
+      </div>
 
-        <ul className="mt-auto flex flex-wrap gap-1.5 pt-3" aria-label="Tech stack">
+      <div className="mt-6">
+        <ul className="flex flex-wrap gap-1.5 pt-3 border-t border-ink/5" aria-label="Tech stack">
           {p.stack.map(s => (
             <li key={s} className="rounded-lg bg-teal/10 border border-teal/20 px-2.5 py-1 text-xs font-semibold text-teal-deep">
               {s}
@@ -61,7 +58,7 @@ export default function ProjectCard({ p }: { p: Project }) {
           ))}
         </ul>
 
-        <div className="flex flex-wrap sm:flex-nowrap gap-2 pt-3">
+        <div className="flex flex-wrap sm:flex-nowrap gap-2 pt-4">
           {p.demo && (
             <a
               className="btn btn-primary flex-1 justify-center !px-4 !py-2.5 text-xs sm:text-sm font-semibold"

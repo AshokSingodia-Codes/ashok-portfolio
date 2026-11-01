@@ -1,9 +1,32 @@
 import { useState, type PointerEvent } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDownRight, FileText, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, FileText, Github, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../data/portfolio'
 
 const words = profile.name.split(' ')
+
+const selectedWorks = [
+  {
+    name: 'FinAdvisor-X',
+    metric: 'Precision@5 0.39 to 0.46',
+    href: 'https://fin-advisor-voice.vercel.app/',
+  },
+  {
+    name: 'Text-to-SQL',
+    metric: 'execution accuracy 62.3% to 71.6%',
+    href: 'https://github.com/AshokSingodia-Codes/fine-tuned-text2sql',
+  },
+  {
+    name: 'Research Assistant',
+    metric: 'Redis checkpoint recovery',
+    href: 'https://research-agent-sooty-rho.vercel.app',
+  },
+  {
+    name: 'Fraud Scoring',
+    metric: '0.90 ROC-AUC',
+    href: 'https://fraud-scoring-service.vercel.app',
+  },
+]
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -69,28 +92,31 @@ export default function Hero() {
       </div>
 
       <div className="hidden md:block">
-        <div className="glass rounded-3xl p-6 shadow-soft border border-teal/20 transition-all duration-300 hover:shadow-xl hover:border-teal/40">
-          <div className="mb-4 flex items-center justify-between border-b border-ink/10 pb-3">
+        <div className="glass rounded-3xl p-6 shadow-soft border border-teal/25 transition-all duration-300 hover:shadow-xl hover:border-teal/50">
+          <div className="mb-3 flex items-center justify-between border-b border-ink/10 pb-3">
             <h2 className="font-display text-base font-bold text-ink">Selected work</h2>
             <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
           </div>
-          <ul className="space-y-3.5 text-sm">
-            <li className="flex flex-col gap-0.5 border-b border-ink/5 pb-2.5">
-              <span className="font-semibold text-ink">FinAdvisor-X</span>
-              <span className="text-xs text-mute font-medium">Precision@5 0.39 to 0.46</span>
-            </li>
-            <li className="flex flex-col gap-0.5 border-b border-ink/5 pb-2.5">
-              <span className="font-semibold text-ink">Text-to-SQL</span>
-              <span className="text-xs text-mute font-medium">execution accuracy 62.3% to 71.6%</span>
-            </li>
-            <li className="flex flex-col gap-0.5 border-b border-ink/5 pb-2.5">
-              <span className="font-semibold text-ink">Research Assistant</span>
-              <span className="text-xs text-mute font-medium">Redis checkpoint recovery</span>
-            </li>
-            <li className="flex flex-col gap-0.5">
-              <span className="font-semibold text-ink">Fraud Scoring</span>
-              <span className="text-xs text-mute font-medium">0.90 ROC-AUC</span>
-            </li>
+          <ul className="space-y-2 text-sm">
+            {selectedWorks.map(sw => (
+              <li key={sw.name}>
+                <a
+                  href={sw.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col gap-0.5 rounded-2xl border border-transparent p-2.5 transition-all duration-200 hover:border-teal/40 hover:bg-teal/5 hover:shadow-sm"
+                  aria-label={`Open ${sw.name}`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-ink group-hover:text-teal-deep transition-colors">
+                      {sw.name}
+                    </span>
+                    <ArrowUpRight size={15} className="text-mute opacity-60 group-hover:opacity-100 group-hover:text-teal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  </div>
+                  <span className="text-xs text-mute font-medium">{sw.metric}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
