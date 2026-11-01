@@ -40,11 +40,6 @@ export default function ProjectCard({ p }: { p: Project }) {
           <span className="rounded-full bg-teal/15 border border-teal/25 px-3 py-1 text-xs font-bold text-teal-deep">
             {p.category}
           </span>
-          {p.featured && (
-            <span className="rounded-full bg-gradient-to-r from-amber to-rose px-3 py-1 text-xs font-bold text-white shadow-sm">
-              Featured
-            </span>
-          )}
         </div>
 
         <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-ink group-hover:text-teal-deep transition-colors">
@@ -75,7 +70,18 @@ export default function ProjectCard({ p }: { p: Project }) {
               rel="noopener noreferrer"
               aria-label={`Live demo of ${p.title}`}
             >
-              <ExternalLink size={15} /> Live demo
+              <ExternalLink size={15} /> Live Demo
+            </a>
+          )}
+          {p.model && (
+            <a
+              className="btn btn-primary flex-1 justify-center !px-4 !py-2.5 text-xs sm:text-sm font-semibold"
+              href={p.model}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Model for ${p.title}`}
+            >
+              <ExternalLink size={15} /> Model
             </a>
           )}
           <a
@@ -92,5 +98,3 @@ export default function ProjectCard({ p }: { p: Project }) {
     </motion.article>
   )
 }
-
-

@@ -1,5 +1,5 @@
 import { Award, GraduationCap } from 'lucide-react'
-import { certifications, education, experience, stats } from '../data/portfolio'
+import { certifications, education, experience } from '../data/portfolio'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 
@@ -8,7 +8,7 @@ export default function Experience() {
 
   return (
     <section id="experience" aria-labelledby="h-exp" className="wrap pt-24">
-      <SectionHeading id="h-exp" title="Experience" sub="Internships, education and measurable results from my projects." />
+      <SectionHeading id="h-exp" title="Experience" />
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <ol className="relative space-y-6 border-l-2 border-teal/30 pl-6">
           {experience.map((x, k) => (
@@ -34,23 +34,13 @@ export default function Experience() {
               <h3 className="font-display text-xl font-bold text-ink">{education.degree}</h3>
               <p className="font-semibold text-teal-deep">{education.school}</p>
               <p className="text-sm font-medium text-mute">{education.period} · CGPA {education.cgpa}</p>
-              <p className="mt-3 text-sm text-mute leading-relaxed"><b>Key Coursework:</b> {education.courses}.</p>
+              <p className="mt-3 text-sm text-mute leading-relaxed"><b>Coursework:</b> {education.courses}.</p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="grid grid-cols-2 gap-3">
-              {stats.map(s => (
-                <div key={s.label} className="glass rounded-2xl p-4 transition-all duration-300 transform hover:scale-[1.05] hover:shadow-xl hover:bg-white/95">
-                  <b className="bg-gradient-to-r from-teal to-rose bg-clip-text font-display text-3xl font-extrabold text-transparent">{s.value}</b>
-                  <p className="mt-1 text-xs font-semibold text-mute">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal delay={0.15}>
             <div className={cardHoverStyle}>
               <Award className="mb-2 text-amber h-7 w-7" />
-              <h3 className="font-display text-xl font-bold text-ink">Certifications & Training</h3>
+              <h3 className="font-display text-xl font-bold text-ink">Certifications</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm font-medium text-ink/80 marker:text-amber">
                 {certifications.map(c => (
                   <li key={c}>{c}</li>
@@ -63,4 +53,3 @@ export default function Experience() {
     </section>
   )
 }
-

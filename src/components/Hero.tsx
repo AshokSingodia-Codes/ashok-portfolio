@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState, type PointerEvent } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { ArrowDownRight, FileText, Github, Mail, GraduationCap } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ArrowDownRight, Github, Linkedin, Mail, GraduationCap } from 'lucide-react'
 import { profile } from '../data/portfolio'
 import OrbBoundary from './OrbBoundary'
 
@@ -9,14 +9,8 @@ const words = profile.name.split(' ')
 
 export default function Hero() {
   const reduce = useReducedMotion()
-  const [i, setI] = useState(0)
   const [glow, setGlow] = useState({ x: 70, y: 30 })
   const [wide, setWide] = useState(false)
-
-  useEffect(() => {
-    const t = setInterval(() => setI(n => (n + 1) % profile.focus.length), 2600)
-    return () => clearInterval(t)
-  }, [])
 
   useEffect(() => {
     const q = window.matchMedia('(min-width:900px)')
@@ -40,12 +34,8 @@ export default function Hero() {
 
       <div>
         <div className="mb-4 flex flex-wrap gap-2">
-          <p className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium">
-            <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
-            Open to AI / ML & Data Science Opportunities
-          </p>
           <p className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-mute font-medium">
-            <GraduationCap size={14} className="text-teal" /> Central University of Karnataka
+            <GraduationCap size={14} className="text-teal" /> Central University of Karnataka, Kalaburagi
           </p>
         </div>
 
@@ -67,32 +57,14 @@ export default function Hero() {
 
         <p className="mt-4 font-display text-2xl font-semibold text-teal-deep">{profile.role}</p>
 
-        <p className="mt-2 h-8 text-lg text-mute" aria-live="off">
-          Specializing in{' '}
-          <span className="relative inline-block min-w-[18ch] font-semibold text-ink">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={i}
-                className="inline-block"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                {profile.focus[i]}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-        </p>
-
         <p className="mt-4 max-w-xl text-lg leading-relaxed text-mute">{profile.summary}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <a className="btn btn-primary shadow-soft" href={profile.resume} target="_blank" rel="noopener noreferrer">
-            <FileText size={18} /> Resume
-          </a>
-          <a className="btn" href={profile.github} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-primary shadow-soft" href={profile.github} target="_blank" rel="noopener noreferrer">
             <Github size={18} /> GitHub
+          </a>
+          <a className="btn" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+            <Linkedin size={18} /> LinkedIn
           </a>
           <a className="btn" href="#contact">
             <Mail size={18} /> Contact
@@ -116,5 +88,3 @@ export default function Hero() {
     </section>
   )
 }
-
-

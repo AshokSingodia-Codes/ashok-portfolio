@@ -11,7 +11,7 @@ export default function Skills() {
 
   return (
     <section id="skills" aria-labelledby="h-skills" className="wrap pt-24">
-      <SectionHeading id="h-skills" title="Technologies and Tools" sub="Explore tools & libraries categorized across 6 domain specializations." />
+      <SectionHeading id="h-skills" title="Skills" />
       <div className="glass rounded-3xl p-6 md:p-9 shadow-soft">
         <div role="tablist" aria-label="Skill categories" className="mb-8 flex flex-wrap gap-3">
           {groups.map(g => {
@@ -40,7 +40,7 @@ export default function Skills() {
 
         <div className="rounded-2xl border border-teal/15 bg-white/50 p-5 md:p-6 backdrop-blur-sm">
           <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-teal-deep">
-            {sel} Libraries & Tools ({skills[sel].length})
+            {sel} ({skills[sel].length})
           </h4>
           <AnimatePresence mode="wait">
             <motion.ul
@@ -76,4 +76,3 @@ export default function Skills() {
     </section>
   )
 }
-

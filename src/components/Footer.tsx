@@ -3,7 +3,7 @@ import { nav, profile } from '../data/portfolio'
 
 export default function Footer() {
   const socialLinks = [
-    { Icon: Mail, href: `mailto:${profile.email}?subject=${encodeURIComponent('Portfolio Inquiry - Ashok Singodia')}`, label: 'Email' },
+    { Icon: Mail, href: `mailto:${profile.email}`, label: 'Email' },
     { Icon: Github, href: profile.github, label: 'GitHub' },
     { Icon: Linkedin, href: profile.linkedin, label: 'LinkedIn' },
   ]
@@ -46,9 +46,8 @@ export default function Footer() {
         </div>
       </div>
       <p className="wrap pb-8 text-xs sm:text-sm text-mute border-t border-ink/5 pt-6">
-        © {new Date().getFullYear()} {profile.name} · {profile.location}
+        © {new Date().getFullYear()} {profile.name}
       </p>
     </footer>
   )
 }
-

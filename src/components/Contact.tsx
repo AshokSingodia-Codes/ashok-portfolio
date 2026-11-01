@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Check, Copy, Github, Linkedin, Loader2, Mail, Phone, Send, CheckCircle2 } from 'lucide-react'
+import { Check, Copy, Github, Linkedin, Loader2, Mail, Send, CheckCircle2 } from 'lucide-react'
 import { profile } from '../data/portfolio'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
@@ -47,7 +47,7 @@ export default function Contact() {
           name: f.name,
           email: f.email,
           message: f.message,
-          _subject: `New Portfolio Inquiry from ${f.name}`,
+          _subject: `Portfolio Message from ${f.name}`,
           _template: 'table'
         })
       })
@@ -55,19 +55,18 @@ export default function Contact() {
       if (response.ok) {
         setStatus({
           type: 'success',
-          message: '✨ Message delivered directly to Ashok\'s inbox (ashokbadu01@gmail.com)!'
+          message: 'Message sent to ashokbadu01@gmail.com.'
         })
         setF({ name: '', email: '', message: '' })
       } else {
-        throw new Error('Direct submission endpoint error')
+        throw new Error('Endpoint error')
       }
     } catch {
-      // Fallback: Open mailto link
       const body = `${f.message}\n\nFrom: ${f.name} (${f.email})`
       window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(`Portfolio message from ${f.name}`)}&body=${encodeURIComponent(body)}`
       setStatus({
         type: 'success',
-        message: 'Opening your default email app to deliver the message...'
+        message: 'Opening email client...'
       })
     } finally {
       setLoading(false)
@@ -76,15 +75,14 @@ export default function Contact() {
 
   const field = 'w-full rounded-2xl border border-ink/10 bg-white/80 px-4 py-3 outline-none transition focus:border-teal'
   const rows = [
-    { Icon: Mail, label: 'Email', value: profile.email, href: `mailto:${profile.email}?subject=${encodeURIComponent('Portfolio Inquiry - Ashok Singodia')}` },
-    { Icon: Phone, label: 'Phone', value: profile.phone, href: profile.phoneHref },
+    { Icon: Mail, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
     { Icon: Linkedin, label: 'LinkedIn', value: 'ashok-singodia', href: profile.linkedin },
     { Icon: Github, label: 'GitHub', value: 'AshokSingodia-Codes', href: profile.github },
   ]
 
   return (
     <section id="contact" aria-labelledby="h-contact" className="wrap pt-24">
-      <SectionHeading id="h-contact" title="Get in Touch" sub="Hiring for AI/ML, Data Science, GenAI or Python backend roles? Send a direct message." />
+      <SectionHeading id="h-contact" title="Contact" />
       <div className="grid gap-6 md:grid-cols-2">
         <Reveal>
           <div className="glass space-y-3 rounded-3xl p-6">
@@ -97,10 +95,9 @@ export default function Contact() {
                   <span className="block text-xs text-mute">{label}</span>
                   <span className="block truncate font-semibold">{value}</span>
                 </a>
-                {(label === 'Email' || label === 'Phone') && <CopyBtn text={label === 'Email' ? profile.email : profile.phone} label={label.toLowerCase()} />}
+                {label === 'Email' && <CopyBtn text={profile.email} label={label.toLowerCase()} />}
               </div>
             ))}
-            <p className="px-1 pt-1 text-sm text-mute">Based in {profile.location}.</p>
           </div>
         </Reveal>
 
@@ -126,7 +123,7 @@ export default function Contact() {
                 </>
               ) : (
                 <>
-                  <Send size={18} /> Send direct message
+                  <Send size={18} /> Send message
                 </>
               )}
             </button>
@@ -139,7 +136,7 @@ export default function Contact() {
             )}
             {!status.message && (
               <p role="status" className="min-h-5 text-center text-xs text-mute">
-                Submits directly to <b>ashokbadu01@gmail.com</b>
+                Submits to <b>ashokbadu01@gmail.com</b>
               </p>
             )}
           </form>
@@ -148,4 +145,3 @@ export default function Contact() {
     </section>
   )
 }
-
